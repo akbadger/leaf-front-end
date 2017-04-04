@@ -17,6 +17,8 @@ import JobDetail from './JobDetail'
 import EmployerView from './EmployerView'
 import UserSnapshot from './UserSnapshot'
 import EmployerSnapshot from './EmployerSnapshot'
+import JobSnapshot from './JobSnapshot'
+import AddJob from './AddJob'
 import './index.css';
 
 
@@ -38,6 +40,8 @@ ReactDOM.render(
         <Route path="/employerview" component={EmployerView} />
         <Route path="/usersnapshot" component={UserSnapshot} />
         <Route path="/employersnapshot" component={EmployerSnapshot} />
+        <Route path="/jobsnapshot" component={JobSnapshot} />
+        <Route path="/addjob" component={AddJob} />
     
 
       </Route>

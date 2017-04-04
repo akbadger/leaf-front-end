@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router'
 import EmployerSnapshot from './EmployerSnapshot'
+import JobSnapshot from './JobSnapshot'
 
 class EmployerDashboard extends Component {
   render() {
@@ -9,31 +10,39 @@ class EmployerDashboard extends Component {
         <EmployerSnapshot/>
 		<div className="row">
 			<div className="col-sm-8 col-sm-offset-2">
-				<h2 className="text-center">Job Postings</h2>
+				<h2 className="text-center">Job Matches</h2>
 				<div className="panel panel-default">
-            		<div className="panel-body">
-						<h3>Job Title</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nisi voluptates in accusantium dolorum fuga. Dignissimos eius, praesentium consequatur, neque exercitationem sequi! Omnis sit consequuntur, ipsam nisi cupiditate possimus reiciendis?</p>
-						<button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/jobmatches')}>View 3 matches</button>
-					</div>
+					<div className="panel-body">
+					<table className="table">
+					<tr>
+						<td>Job Title Posting</td>
+						<td>3 Matches</td>
+						<td><button type="button" className="btn btn-default" onClick={() => browserHistory.push ('/jobmatches')}>View</button></td>
+					</tr>
+					<tr>
+						<td>Job Title Posting</td>
+						<td>3 Matches</td>
+						<td><button type="button" className="btn btn-default" onClick={() => browserHistory.push ('/jobmatches')}>View</button></td>
+					</tr>
+					<tr>
+						<td>Job Title Posting</td>
+						<td>3 Matches</td>
+						<td><button type="button" className="btn btn-default" onClick={() => browserHistory.push ('/jobmatches')}>View</button></td>
+					</tr>
+				</table>
 				</div>
-				<div className="panel panel-default">
-            		<div className="panel-body">
-						<h3>Job Title</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nisi voluptates in accusantium dolorum fuga. Dignissimos eius, praesentium consequatur, neque exercitationem sequi! Omnis sit consequuntur, ipsam nisi cupiditate possimus reiciendis?</p>
-						<button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/jobmatches')}>View 3 matches</button>
-					</div>
-				</div>
-				<div className="panel panel-default">
-            		<div className="panel-body">
-						<h3>Job Title</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nisi voluptates in accusantium dolorum fuga. Dignissimos eius, praesentium consequatur, neque exercitationem sequi! Omnis sit consequuntur, ipsam nisi cupiditate possimus reiciendis?</p>
-						<button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/jobmatches')}>View 3 matches</button>
-					</div>
 				</div>
 			</div>
-        </div>
-    </div>
+		</div>
+		<div className="row">
+			<div className="col-sm-8 col-sm-offset-2">
+				<h2 className="text-center">Current Job Postings</h2>
+				<button type="button" className="btn btn-default" onClick={() => browserHistory.push ('/addjob')}>Add New Job</button>
+					<JobSnapshot/>
+					<JobSnapshot/>
+				</div>
+			</div>
+		</div>
     );
   }
 }

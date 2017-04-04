@@ -77,17 +77,7 @@ class UserSignup extends Component {
 								<input type="checkbox" id="inlineCheckbox3" value="option3"/> Food Service
 								</label>
 							</div>
-							<div className="row">
-								<label className="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="option1"/> Lawncare
-								</label>
-								<label className="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox2" value="option2"/> Construction
-								</label>
-								<label className="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox3" value="option3"/> Food Service
-								</label>
-							</div>
+							
 							
 							
 				</form>

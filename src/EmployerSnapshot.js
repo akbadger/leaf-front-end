@@ -11,7 +11,7 @@ class EmployerSnapshot extends Component {
 				<div className="panel panel-default">
             		<div className="panel-body">
 						<div className="col-sm-6">
-							<img src="http://unsplash.it/400/?image=random"/>
+							<img src="/img/lovelace.jpg"/>
 							<h4>Company Name</h4>
 							<p>more snapshot info, probably contact person info</p>
 							<button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/EmployerProfileEdit')}>Edit</button>

@@ -17,12 +17,16 @@ class Home extends Component {
         <div className="row">
             <div className="col-sm-8 col-sm-offset-2">
                 <div className="panel panel-default">
+                    <div className="panel-body">
                     <h2>About us</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde velit neque debitis numquam dolor adipisci officiis laboriosam consequatur, eum quia dignissimos quis praesentium maxime explicabo necessitatibus consequuntur. Deserunt, et, doloremque?</p>
+                    </div>
                 </div>
                 <div className="panel panel-default">
+                    <div className="panel-body">
                     <h2>New Leaf Info</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde velit neque debitis numquam dolor adipisci officiis laboriosam consequatur, eum quia dignissimos quis praesentium maxime explicabo necessitatibus consequuntur. Deserunt, et, doloremque?</p>
+                    </div>
                 </div>
             </div>
         </div>
