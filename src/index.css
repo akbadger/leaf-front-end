@@ -19,5 +19,9 @@ body {
 .nav a {
     padding-right: 20px;
     text-decoration: none;
+}
 
+.checkbox-inline {
+    padding-right: 5px;
+    padding-bottom: 5px;
 }

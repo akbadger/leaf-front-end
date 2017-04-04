@@ -13,6 +13,10 @@ import EmployerDashboard from './EmployerDashboard'
 import EmployerProfileEdit from './EmployerProfileEdit'
 import JobMatches from './JobMatches'
 import UserDetail from './UserDetail'
+import JobDetail from './JobDetail'
+import EmployerView from './EmployerView'
+import UserSnapshot from './UserSnapshot'
+import EmployerSnapshot from './EmployerSnapshot'
 import './index.css';
 
 
@@ -30,6 +34,11 @@ ReactDOM.render(
         <Route path="/employerprofileedit" component={EmployerProfileEdit} />
         <Route path="/jobmatches" component={JobMatches} />
         <Route path="/userdetail" component={UserDetail} />
+        <Route path="/jobdetail" component={JobDetail} />
+        <Route path="/employerview" component={EmployerView} />
+        <Route path="/usersnapshot" component={UserSnapshot} />
+        <Route path="/employersnapshot" component={EmployerSnapshot} />
+    
 
       </Route>
  </Router>,
