@@ -14,10 +14,10 @@ class JobMatches extends Component {
 			<div className="col-sm-8 col-sm-offset-2">
                 <button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/employerdashboard')}>Back to Dashboard</button>
 				<h2 className="text-center">User Matches</h2>
-				<JobSnapshot/>
-                <UserSnapshot/>
-                <UserSnapshot/>
-                <UserSnapshot/>
+				<JobSnapshot isEmployer={true}/>
+                <UserSnapshot isEmployer={true}/>
+                <UserSnapshot isEmployer={true}/>
+                <UserSnapshot isEmployer={true}/>
 						
 					</div>
                 </div>

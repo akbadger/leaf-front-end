@@ -13,8 +13,8 @@ class JobSnapshot extends Component {
 						<h3>Job Title</h3>
 						<h4>Company Name</h4>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nisi voluptates in accusantium dolorum fuga. Dignissimos eius, praesentium consequatur, neque exercitationem sequi! Omnis sit consequuntur, ipsam nisi cupiditate possimus reiciendis?</p>
-						<button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/jobdetail')}>View job details</button>
-						<button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/AddJob')}>Edit</button>
+						{this.props.isEmployer ? <span><button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/AddJob')}>Edit</button> 
+						<button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/jobdetail')}>View details</button></span> : <button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/jobdetail')}>View details</button>}
 					</div>
 				</div>
 			</div>

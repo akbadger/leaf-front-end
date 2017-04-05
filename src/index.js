@@ -14,7 +14,7 @@ import EmployerProfileEdit from './EmployerProfileEdit'
 import JobMatches from './JobMatches'
 import UserDetail from './UserDetail'
 import JobDetail from './JobDetail'
-import EmployerView from './EmployerView'
+import EmployerDetail from './EmployerDetail'
 import UserSnapshot from './UserSnapshot'
 import EmployerSnapshot from './EmployerSnapshot'
 import JobSnapshot from './JobSnapshot'
@@ -37,7 +37,7 @@ ReactDOM.render(
         <Route path="/jobmatches" component={JobMatches} />
         <Route path="/userdetail" component={UserDetail} />
         <Route path="/jobdetail" component={JobDetail} />
-        <Route path="/employerview" component={EmployerView} />
+        <Route path="/employerdetail" component={EmployerDetail} />
         <Route path="/usersnapshot" component={UserSnapshot} />
         <Route path="/employersnapshot" component={EmployerSnapshot} />
         <Route path="/jobsnapshot" component={JobSnapshot} />

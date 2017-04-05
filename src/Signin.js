@@ -9,8 +9,8 @@ class Signin extends Component {
         <div className="row">
             <div className="col-sm-6 col-sm-offset-3">
                     <div className="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Email"/>
+                        <label for="username">Username</label>
+                        <input type="text" className="form-control" id="username" placeholder=""/>
                     </div>
                     <div className="form-group">
                         <label for="exampleInputPassword1">Password</label>

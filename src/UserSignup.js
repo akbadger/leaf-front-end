@@ -1,86 +1,80 @@
 import React, { Component } from 'react';
-import { browserHistory } from 'react-router'
 
 class UserSignup extends Component {
+
+	 constructor(props) {
+        super(props)
+        this.signup = this.signup.bind(this)
+        this.state = {
+          firstName: '',
+          lastName: '',
+          username: '',
+          password: ''
+        }
+    }
+
+	signup() {
+		console.log(this.state)
+		fetch('https://salty-thicket-32148.herokuapp.com/api/users/' , {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+
+        // Back-end controls the left side, properties, of this object
+        // Front-end controls the variables names and values on the right side
+        body: JSON.stringify({
+            user: {
+                first_name: this.state.firstName,
+                last_name: this.state.lastName,
+                username: this.state.username,
+                password: this.state.password,
+            }
+        })
+    })
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(response) {
+            console.log(response);
+
+            if (response.user.token) {
+                // Saves any string into a named spot within your browser for the current domain.
+                sessionStorage.setItem('user', JSON.stringify(response));
+                location.href = './userdashboard';
+            }
+            else {
+                alert('There was an error. Check out your console.');
+                console.log(response);
+            }
+        })
+	}
+
   render() {
     return (
       <div>
-        <p>User Signup</p>
 			<div className="row">
-				<div className="col-sm-5 col-sm-offset-1 text-center">
-					<h3>Basic Information</h3>
-					<form>
+				<div className="col-sm-6 col-sm-offset-3 text-center">
+					<h3>Sign Up</h3>
 						<div className="form-group">
-							<label for="name">First Name</label>
-							<input type="firstName" className="form-control" id="first_name" placeholder=""/>
+							<label>First Name</label>
+							<input htmlFor="first_name" type="text" className="form-control" id="first_name" name="first_name" placeholder="" onChange={(e) => this.setState({firstName: e.target.value})}/>
 						</div>
 						<div className="form-group">
-							<label for="name">Last Name</label>
-							<input type="lastName" className="form-control" id="last_name" placeholder=""/>
+							<label htmlFor="last_name">Last Name</label>
+							<input type="text" className="form-control" id="last_name" name="last_name" placeholder="" onChange={(e) => this.setState({lastName: e.target.value})}/>
 						</div>
 						<div className="form-group">
-							<label for="username">Create a Username</label>
-							<input type="username" className="form-control" id="username" placeholder=""/>
+							<label htmlFor="username">Create a Username</label>
+							<input type="text" className="form-control" id="username" name="username" placeholder="" onChange={(e) => this.setState({username: e.target.value})}/>
 						</div>
 						<div className="form-group">
-							<label for="password">Create a Password</label>
-							<input type="password" className="form-control" id="password" placeholder=""/>
+							<label htmlFor="password">Create a Password</label>
+							<input type="password" className="form-control" id="password" name="password" placeholder="" onChange={(e) => this.setState({password: e.target.value})}/>
 						</div>
-						<div className="form-group">
-							<label for="email">Email (optional)</label>
-							<input type="email" className="form-control" id="email" placeholder=""/>
-						</div>
-						<div className="form-group">
-							<label for="phone">Phone</label>
-							<input type="phone" className="form-control" id="phone" placeholder=""/>
-						</div>
-						<div className="form-group">
-							<label for="communication">Preferred method of communication:</label>
-							<select className="form-control">
-								<option>Phone</option>
-								<option>Email</option>
-							</select>
-						</div>
-
-						<div className="form-group">
-							<label for="about">About</label>
-							<textarea className="form-control" id="about" placeholder=""/>
-						</div>
-
-						<button type="submit" className="btn btn-default" onClick={() => browserHistory.push('/userdashboard')}>Submit</button>
-				</form>
-			</div>
-			<div className="col-sm-5 col-sm-offset-1 text-center">
-					<h3>Work History/Education</h3>
-					<form>
-						<div className="form-group">
-							<label for="education">Education</label>
-							<textarea className="form-control" id="education" placeholder=""/>
-						</div>
-						<div className="form-group">
-							<label for="work history">Work History</label>
-							<textarea className="form-control" id="work_history" placeholder=""/>
-						</div>
-						<div className="form-group">
-							<label for="otherInterests">Other Interests</label>
-							<textarea className="form-control" id="other_interests" placeholder=""/>
-						</div>
-							<h3>Skills and Abilities</h3>
-							<div className="row">
-								<label className="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="option1"/> Lawncare
-								</label>
-								<label className="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox2" value="option2"/> Construction
-								</label>
-								<label className="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox3" value="option3"/> Food Service
-								</label>
-							</div>
-							
-							
-							
-				</form>
+						<button type="button" className="btn btn-default" onClick={this.signup}>Save</button>
+						<br/>
+						<br/>
 			</div>
 
 

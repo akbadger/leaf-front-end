@@ -14,7 +14,7 @@ class UserDetail extends Component {
 				<h2 className="text-center">User Full Profile</h2>
 				<div className="panel panel-default">
             		<div className="panel-body">
-                        <img src="http://unsplash.it/400/?image=random"/>
+                        <img src="http://unsplash.it/400/?image=random" alt="profile"/>
 						<h3>User Name</h3>
 						<p>User Info</p>
                         <p>All the user info forever.</p>

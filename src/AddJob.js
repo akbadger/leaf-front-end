@@ -6,7 +6,7 @@ class EmployerSignup extends Component {
   render() {
     return (
       	<div>
-		  <EmployerSnapshot/>
+		  <EmployerSnapshot isEmployer={true}/>
     		<div className="row">
 				<div className="col-sm-6 col-sm-offset-3 ">
 					<h3>Add/Edit Job</h3>

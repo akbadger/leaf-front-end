@@ -6,17 +6,16 @@ class UserSnapshot extends Component {
   render() {
     return (
     <div>
-        {/*<div className="row">*/}
-			{/*<div className="col-sm-8 col-sm-offset-2">*/}
+        <div className="row">
+			<div className="col-sm-8 col-sm-offset-2">
 				<div className="panel panel-default">
             		<div className="panel-body">
 						<div className="col-sm-6">
-							<img src="/img/moonrock.jpg"/>
-							<h3>Name</h3>
-							<h4>Username</h4>
-							<p>more snapshot info</p>
-							<button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/UserProfileEdit')}>Edit</button>
-							<button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/UserDetail')}>View Full Profile</button>
+							<img src="/img/moonrock.jpg" alt="profile"/>
+							<h3>{this.props.name}</h3>
+							<h4>{this.props.username}</h4>
+							{this.props.isEmployer ? <button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/UserDetail')}>View Full Profile</button> : <button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/UserProfileEdit')}>Edit</button>}
+							
 						</div>
 						<div className="col-sm-6">
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
@@ -37,6 +36,8 @@ class UserSnapshot extends Component {
             		</div>
         		</div>
 			</div>
+		</div>
+	</div>
     
         
         

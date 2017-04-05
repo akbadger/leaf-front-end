@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Nav from './Nav'
-import Signin from './Signin'
 import Footer from './Footer'
 
 class App extends Component {
-	constructor(props) {
-        super(props)
+	//constructor(props) {
+        //super(props)
         // this.getProducts = this.getProducts.bind(this)
         // this.getProduct = this.getProduct.bind(this)
     
@@ -13,7 +12,7 @@ class App extends Component {
     //     products: [],
     //     product: {}
     // }
-}
+//}
 
 
   render() {

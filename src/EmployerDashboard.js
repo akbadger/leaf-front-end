@@ -7,7 +7,7 @@ class EmployerDashboard extends Component {
   render() {
     return (
       <div>
-        <EmployerSnapshot/>
+        <EmployerSnapshot isEmployer={true}/>
 		<div className="row">
 			<div className="col-sm-8 col-sm-offset-2">
 				<h2 className="text-center">Job Matches</h2>
@@ -38,8 +38,8 @@ class EmployerDashboard extends Component {
 			<div className="col-sm-8 col-sm-offset-2">
 				<h2 className="text-center">Current Job Postings</h2>
 				<button type="button" className="btn btn-default" onClick={() => browserHistory.push ('/addjob')}>Add New Job</button>
-					<JobSnapshot/>
-					<JobSnapshot/>
+					<JobSnapshot isEmployer={true} />
+					<JobSnapshot isEmployer={false} />
 				</div>
 			</div>
 		</div>
