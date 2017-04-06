@@ -21,19 +21,20 @@ class UserSnapshot extends Component {
         <div className="row">
 			<div className="col-sm-8 col-sm-offset-2">
 				<div className="panel panel-default">
-            		<div className="panel-body">
-						<div className="col-sm-6">
-							<img src="/img/moonrock.jpg" alt="profile"/>
+            		<div className="panel-body text-center">
+						{/*<div className="col-sm-6 text-center">*/}
+							<img src="img/bluesquare.png" className="img-rounded" alt="profile"/>
 							<h3>{this.state.snapshot.first_name} {this.state.snapshot.last_name}</h3>
-							<h4>{this.state.snapshot.username}</h4>
-							{this.props.isEmployer ? <button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/UserDetail')}>View Full Profile</button> : <button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/UserProfileEdit')}>Edit</button>}
+							{/*<h4>{this.state.snapshot.username}</h4>*/}
+							<p>{this.state.snapshot.bio}</p>
+							{this.props.isEmployer ? <button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/UserDetail')}>View Full Profile</button> : <span><button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/UserProfileEdit')}>Edit</button> <button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/UserDetail')}>View Profile</button></span>}  
 							
-						</div>
-						<div className="col-sm-6">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
-							<p>Odio, labore cupiditate saepe molestias est veniam nostrum distinctio in praesentium totam expedita, quisquam odit officia amet. At quasi ex accusamus fuga!</p>
+						{/*</div>*/}
+						{/*<div className="col-sm-6">*/}
 							
-							<div className="row">
+							{/*<p>{this.state.snapshot.skills[0]}</p>*/}
+							
+							{/*<div className="row">
 								<label className="checkbox-inline">
 								<input type="checkbox" id="inlineCheckbox1" value="option1"/> Lawncare
 								</label>
@@ -43,13 +44,13 @@ class UserSnapshot extends Component {
 								<label className="checkbox-inline">
 								<input type="checkbox" id="inlineCheckbox3" value="option3"/> Food Service
 								</label>
-							</div>
+							</div>*/}
 						</div>
             		</div>
         		</div>
 			</div>
 		</div>
-	</div>
+	
     
         
         

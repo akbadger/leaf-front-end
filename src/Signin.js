@@ -37,7 +37,7 @@ class Signin extends Component {
                 // Saves any string into a named spot within your browser for the current domain.
                 sessionStorage.setItem('user', JSON.stringify(response));
                 // browserHistory.push(response.user.role === 'user' ? '/userdashboard' : '/employerdashboard');
-                browserHistory.push('/userdashboard');
+                location.href = '/userdashboard';
             }
             else {
                 alert('There was an error. Check out your console.');
