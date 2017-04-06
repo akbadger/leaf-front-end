@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 
 class EmployerSignup extends Component {
 
 	constructor(props) {
         super(props)
-        this.signup = this.signup.bind(this)
+        this.employerSignup = this.employerSignup.bind(this)
         this.state = {
           companyName: '',
           contactName: '',
@@ -14,8 +15,8 @@ class EmployerSignup extends Component {
         }
     }
 
-	signup() {
-		fetch('https://salty-thicket-32148.herokuapp.com/api/employers/' , {
+	employerSignup() {
+		fetch(window.apiHost + '/api/employers' , {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -24,11 +25,10 @@ class EmployerSignup extends Component {
         // Back-end controls the left side, properties, of this object
         // Front-end controls the variables names and values on the right side
         body: JSON.stringify({
-            user: {
+           // token: window.user.token,
+            employer: {
                 company_name: this.state.companyName,
-                contact_name: this.state.contactName,
-                contact_phone: this.state.contactPhone,
-                about: this.state.about,
+                username: this.state.username,
                 password: this.state.password,
             }
         })
@@ -42,7 +42,7 @@ class EmployerSignup extends Component {
             if (response.employer.token) {
                 // Saves any string into a named spot within your browser for the current domain.
                 sessionStorage.setItem('employer', JSON.stringify(response));
-                location.href = './employerdashboard';
+                browserHistory.push('/employerdashboard');
             }
             else {
                 alert('There was an error. Check out your console.');
@@ -56,23 +56,15 @@ class EmployerSignup extends Component {
       	<div>
     		<div className="row">
 				<div className="col-sm-6 col-sm-offset-3 ">
-					<h3>Basic Information</h3>
+					<h3>Sign Up</h3>
 				
 						<div className="form-group">
-							<label htmlFor="name">Company Name</label>
+							<label htmlFor="companyName">Company Name</label>
 							<input type="text" className="form-control" id="company_name" placeholder="" onChange={(e) => this.setState({companyName: e.target.value})}/>
 						</div>
 						<div className="form-group">
-							<label htmlFor="conactName">Contact Name</label>
-							<input type="text" className="form-control" id="contact_name" placeholder=""onChange={(e) => this.setState({contactName: e.target.value})}/>
-						</div>
-						<div className="form-group">
-							<label htmlFor="contactPhone">Phone</label>
-							<input type="text" className="form-control" id="contact_phone" placeholder="" onChange={(e) => this.setState({contactPhone: e.target.value})}/>
-						</div>
-						<div className="form-group">
-							<label htmlFor="about">About</label>
-							<textarea className="form-control" id="password" placeholder="" onChange={(e) => this.setState({about: e.target.value})}/>
+							<label htmlFor="username">Username</label>
+							<input type="text" className="form-control" id="username" placeholder=""onChange={(e) => this.setState({username: e.target.value})}/>
 						</div>
 						<div className="form-group">
 							<label htmlFor="password">Create a Password</label>
@@ -80,7 +72,7 @@ class EmployerSignup extends Component {
 						</div>
 						
 
-						<button type="submit" className="btn btn-default" onClick={this.signup}>Submit</button>
+						<button type="submit" className="btn btn-default" onClick={this.employerSignup}>Submit</button>
 			</div>
 		</div>
     </div>

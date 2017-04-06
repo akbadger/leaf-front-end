@@ -9,7 +9,6 @@ class Nav extends Component {
     }
         
     signout() {
-        console.log(this.state)
         sessionStorage.clear();
         location.href = '/';
     }

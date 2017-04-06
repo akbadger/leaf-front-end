@@ -21,6 +21,10 @@ import JobSnapshot from './JobSnapshot'
 import AddJob from './AddJob'
 import './index.css';
 
+window.user = JSON.parse(sessionStorage.getItem('user'))
+if (window.user) {window.user = window.user.user}
+
+window.apiHost = 'https://salty-thicket-32148.herokuapp.com'
 
 
 ReactDOM.render(

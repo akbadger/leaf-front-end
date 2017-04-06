@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 
 class UserSignup extends Component {
 
 	 constructor(props) {
         super(props)
         this.signup = this.signup.bind(this)
-        //this.signout = this.signout.bind(this)
         this.state = {
           firstName: '',
           lastName: '',
@@ -15,7 +15,7 @@ class UserSignup extends Component {
     }
 
 	signup() {
-		fetch('https://salty-thicket-32148.herokuapp.com/api/users/' , {
+		fetch(window.apiHost + '/api/users' , {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ class UserSignup extends Component {
             if (response.user.token) {
                 // Saves any string into a named spot within your browser for the current domain.
                 sessionStorage.setItem('user', JSON.stringify(response));
-                location.href = './userdashboard';
+                browserHistory.push('/userdashboard');
             }
             else {
                 alert('There was an error. Check out your console.');
@@ -50,11 +50,6 @@ class UserSignup extends Component {
         })
 	}
 
-  //  signout() {
-   //     console.log(this.state)
-   //     sessionStorage.clear();
-  //      location.href = './Home';
-  //  }
 
   render() {
     return (
@@ -82,9 +77,7 @@ class UserSignup extends Component {
 						<br/>
 						<br/>
 			</div>
-
-
-		</div>    
+	    </div>    
     </div>
     );
   }

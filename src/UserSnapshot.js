@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
-import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router';
 
 
 class UserSnapshot extends Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			snapshot: {}
+		}
+	}
+	componentWillMount() {
+		// fetch(window.apiHost + '/api/users/' + window.user.id + '?token=' + window.user.token) 
+		fetch(window.apiHost + '/api/users/' + window.user.id)
+		.then(response => response.json())
+		.then(response => this.setState({snapshot: response.user}))
+	}
   render() {
     return (
     <div>
@@ -12,8 +24,8 @@ class UserSnapshot extends Component {
             		<div className="panel-body">
 						<div className="col-sm-6">
 							<img src="/img/moonrock.jpg" alt="profile"/>
-							<h3>Name</h3>
-							<h4>Username</h4>
+							<h3>{this.state.snapshot.first_name} {this.state.snapshot.last_name}</h3>
+							<h4>{this.state.snapshot.username}</h4>
 							{this.props.isEmployer ? <button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/UserDetail')}>View Full Profile</button> : <button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/UserProfileEdit')}>Edit</button>}
 							
 						</div>
