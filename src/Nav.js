@@ -3,6 +3,17 @@ import { browserHistory } from 'react-router'
 
 
 class Nav extends Component {
+    constructor(props){
+        super(props)
+        this.signout = this.signout.bind(this)
+    }
+        
+    signout() {
+        console.log(this.state)
+        sessionStorage.clear();
+        location.href = '/';
+    }
+
   render() {
     return (
     <nav>
@@ -14,7 +25,7 @@ class Nav extends Component {
                         </div>
                         <div className="col-sm-6 text-right nav-right">
                             <a href="#">Another Link</a>
-                            <a href="#">Perhaps Another</a>
+                            <a href="#" onClick={this.signout}>Sign Out</a>
                         </div>
                     </div>
                 </div>

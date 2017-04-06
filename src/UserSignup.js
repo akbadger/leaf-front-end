@@ -5,6 +5,7 @@ class UserSignup extends Component {
 	 constructor(props) {
         super(props)
         this.signup = this.signup.bind(this)
+        //this.signout = this.signout.bind(this)
         this.state = {
           firstName: '',
           lastName: '',
@@ -14,7 +15,6 @@ class UserSignup extends Component {
     }
 
 	signup() {
-		console.log(this.state)
 		fetch('https://salty-thicket-32148.herokuapp.com/api/users/' , {
         method: 'POST',
         headers: {
@@ -49,6 +49,12 @@ class UserSignup extends Component {
             }
         })
 	}
+
+  //  signout() {
+   //     console.log(this.state)
+   //     sessionStorage.clear();
+  //      location.href = './Home';
+  //  }
 
   render() {
     return (
