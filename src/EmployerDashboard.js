@@ -14,21 +14,23 @@ class EmployerDashboard extends Component {
 				<div className="panel panel-default">
 					<div className="panel-body">
 					<table className="table">
-					<tr>
-						<td>Job Title Posting</td>
-						<td>3 Matches</td>
-						<td><button type="button" className="btn btn-default" onClick={() => browserHistory.push ('/jobmatches')}>View</button></td>
-					</tr>
-					<tr>
-						<td>Job Title Posting</td>
-						<td>3 Matches</td>
-						<td><button type="button" className="btn btn-default" onClick={() => browserHistory.push ('/jobmatches')}>View</button></td>
-					</tr>
-					<tr>
-						<td>Job Title Posting</td>
-						<td>3 Matches</td>
-						<td><button type="button" className="btn btn-default" onClick={() => browserHistory.push ('/jobmatches')}>View</button></td>
-					</tr>
+						<tbody>
+							<tr>
+								<td>Job Title Posting</td>
+								<td>3 Matches</td>
+								<td><button type="button" className="btn btn-default" onClick={() => browserHistory.push ('/jobmatches')}>View</button></td>
+							</tr>
+							<tr>
+								<td>Job Title Posting</td>
+								<td>3 Matches</td>
+								<td><button type="button" className="btn btn-default" onClick={() => browserHistory.push ('/jobmatches')}>View</button></td>
+							</tr>
+							<tr>
+								<td>Job Title Posting</td>
+								<td>3 Matches</td>
+								<td><button type="button" className="btn btn-default" onClick={() => browserHistory.push ('/jobmatches')}>View</button></td>
+							</tr>
+						</tbody>
 				</table>
 				</div>
 				</div>
