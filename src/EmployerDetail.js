@@ -4,9 +4,27 @@ import UserSnapshot from './UserSnapshot'
 
 
 class EmployerDetail extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            detail: {
+                skills: []
+            }
+        }
+    }
+componentWillMount() {
+		// fetch(window.apiHost + '/api/users/' + window.user.id + '?token=' + window.user.token) 
+		fetch(window.apiHost + '/api/users/' + window.user.id)
+		.then(response => response.json())
+		.then(response => this.setState({detail: response.user}))
+	}
+
   render() {
+      const snapshot = ''//window.user.role === 'employer' ? <EmployerSnapshot/> : <UserSnapshot/>
+      const skills = this.state.detail.skills.map(skill => <div className="label label-success" key={skill.id}>{skill.name}</div>)
     return (
     <div>
+        {snapshot}
         <UserSnapshot isEmployer={false}/>
         <div className="row">
 			<div className="col-sm-8 col-sm-offset-2">
@@ -14,14 +32,13 @@ class EmployerDetail extends Component {
             <br/><br/>
 				<div className="panel panel-default">
             		<div className="panel-body">
-                        <img src="http://unsplash.it/400/?image=random" alt="profile"/>
-						<h3>Company Name</h3>
-                        <h4>Contact Person Name</h4>
-                        <p>Contact Information</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem, amet voluptatibus quam, quos dolores pariatur ea tempore corporis, rerum enim, laboriosam numquam! Magni, sed odit vel cumque natus, laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere magnam porro sit nostrum expedita tempora dolor? Alias eligendi hic optio, nam consectetur repudiandae nihil, accusantium placeat totam magni vero dignissimos!</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem, amet voluptatibus quam, quos dolores pariatur ea tempore corporis, rerum enim, laboriosam numquam! Magni, sed odit vel cumque natus, laborum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem, amet voluptatibus quam, quos dolores pariatur ea tempore corporis, rerum enim, laboriosam numquam! Magni, sed odit vel cumque natus, laborum.</p>
-                        
+                        <p>employer detail</p>
+                        <img src="/img/redsquare.png" alt="profile"/>
+						<h3>{this.state.detail.company_name}</h3>
+                        <h4>{this.state.detail.contact_name}</h4>
+                        <p>{this.state.detail.phone}</p>
+                        <p>{this.state.detail.email}</p>
+                        <p>{this.state.detail.about}</p>
                     </div>
                 </div>
             </div>

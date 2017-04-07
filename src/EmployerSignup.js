@@ -8,9 +8,7 @@ class EmployerSignup extends Component {
         this.employerSignup = this.employerSignup.bind(this)
         this.state = {
           companyName: '',
-          contactName: '',
-          contactPhone: '',
-          about: '',
+          username: '',
 		  password: ''
         }
     }

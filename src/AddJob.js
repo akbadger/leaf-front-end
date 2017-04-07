@@ -12,16 +12,16 @@ class EmployerSignup extends Component {
 					<h3>Add/Edit Job</h3>
 					<form>
 						<div className="form-group">
-							<label for="companyName">Company Name</label>
+							<label htmlFor="companyName">Company Name</label>
 							<input type="company" className="form-control" id="company_name" placeholder=""/>
 						</div>
 						<div className="form-group">
-							<label for="jobTitle">Job Title</label>
+							<label htmlFor="jobTitle">Job Title</label>
 							<input type="jobTitle" className="form-control" id="job_title" placeholder=""/>
 						</div>
 						
 						<div className="form-group">
-							<label for="transportation">Transportation:</label>
+							<label htmlFor="transportation">Transportation:</label>
 							<select className="form-control">
 								<option>Provided</option>
 								<option>Not Provided</option>
@@ -29,24 +29,25 @@ class EmployerSignup extends Component {
 						</div>
 
 						<div className="form-group">
-							<label for="about">Description</label>
+							<label htmlFor="about">Description</label>
 							<textarea className="form-control" id="description" placeholder=""/>
 						</div>
-                        <label for="skillsRequired">Skills Required</label>
+                        <label htmlFor="skillsRequired">Skills Required</label>
 							<div className="row">
-								<label className="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="option1"/> Lawncare
+								<label className="checkbox">
+								<input type="checkbox" id="Checkbox1" value="option1"/> Lawncare
 								</label>
-								<label className="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox2" value="option2"/> Construction
+								<label className="checkbox">
+								<input type="checkbox" id="Checkbox2" value="option2"/> Construction
 								</label>
-								<label className="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox3" value="option3"/> Food Service
+								<label className="checkbox">
+								<input type="checkbox" id="Checkbox3" value="option3"/> Food Service
 								</label>
 							</div>
 
-
+						<div className="form-group text-center">
 						<button type="submit" className="btn btn-default" onClick={() => browserHistory.push('/employerdashboard')}>Submit</button>
+						</div>
 				</form>
 			</div>
 		</div>

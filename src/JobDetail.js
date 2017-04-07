@@ -12,11 +12,11 @@ class UserDetail extends Component {
         
         <div className="row">
 			<div className="col-sm-8 col-sm-offset-2">
-            {this.props.isUser? <button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/userdashboard')}>Back to Dashboard</button> : <button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/employerdashboard')}>Back to Dashboard</button>}
+            {/*{window.user.role === 'employer' ? <button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/employerdashboard')}>Back to Jobs</button> : <button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/userdashboard')}>Back to Dashboard</button>}*/}
             <br/><br/>
 				<div className="panel panel-default">
             		<div className="panel-body">
-                        <img src="http://unsplash.it/400/?image=random" alt="profile"/>
+                        <img src="/img/greensquare.png" alt="profile"/>
 						<h3>Job Title</h3>
 						<h4 onClick={() => browserHistory.push('/employerview')}>Company Name</h4>
                         <h4>Contact Person Name</h4>
