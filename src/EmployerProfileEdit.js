@@ -3,20 +3,20 @@ import { browserHistory } from 'react-router'
 import EmployerSnapshot from './EmployerSnapshot'
 
 class EmployerProfileEdit extends Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			companyName: '',
-			contactName: '',
-			email: '',
-			phone: '',
-			communication: '',
-			about: ''
-		}
-	}
+	// constructor(props) {
+	//	super(props)
+	//	this.state = {
+	//		companyName: '',
+	//		contactName: '',
+	//		email: '',
+	//		phone: '',
+	//		communication: '',
+	//		about: ''
+	//	}
+	//}
 
 	employerEdit() {
-		fetch(window.apiHost + '/api/employers' + window.user.id , {
+		fetch(window.apiHost + '/api/users' + window.user.id , {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ class EmployerProfileEdit extends Component {
         // Front-end controls the variables names and values on the right side
         body: JSON.stringify({
            // token: window.user.token,
-            employer: {
+            user: {
                 company_name: this.state.companyName,
                 contact_name: this.state.contactName,
                 email: this.state.email,
@@ -44,7 +44,7 @@ class EmployerProfileEdit extends Component {
 
             if (response.employer.token) {
                 // Saves any string into a named spot within your browser for the current domain.
-                sessionStorage.setItem('employer', JSON.stringify(response));
+                sessionStorage.setItem('user', JSON.stringify(response));
                 browserHistory.push('/employerdetail');
             }
             else {

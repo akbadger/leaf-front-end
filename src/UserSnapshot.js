@@ -26,7 +26,7 @@ class UserSnapshot extends Component {
 							<img src="img/bluesquare.png" className="img-rounded" alt="profile"/>
 							<h3>{this.state.snapshot.first_name} {this.state.snapshot.last_name}</h3>
 							{/*<h4>{this.state.snapshot.username}</h4>*/}
-							<p>{this.state.snapshot.bio}</p>
+							<p>{this.state.snapshot.about}</p>
 							{this.props.isEmployer ? <button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/UserDetail')}>View Full Profile</button> : <span><button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/UserProfileEdit')}>Edit</button> <button type="button" className="btn btn-default text-center" onClick={() => browserHistory.push('/UserDetail')}>View Profile</button></span>}  
 							
 						{/*</div>*/}
