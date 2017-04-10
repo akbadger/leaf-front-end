@@ -23,11 +23,18 @@ class UserProfileEdit extends Component {
 
 	 componentWillMount(){
 		 this.lookupSkills()
-		 
+
 		 fetch(window.apiHost + '/api/users/' + window.user.id)
 		.then(response => response.json())
 		.then(response => this.setState({
-			skills: response.user.skills.map(skill => skill.id)
+			skills: response.user.skills.map(skill => skill.id),
+			email: response.user.email,
+			phone: response.user.phone,
+			communication: response.user.communication,
+			about: response.user.about,
+			education: response.user.education,
+			work_history: response.user.workHistory,
+			interests: response.user.interests
 		}))
 	 }
 
@@ -39,9 +46,11 @@ class UserProfileEdit extends Component {
 		 }
 		 else {
 			skills = skills.filter(skillId => skillId !== Number(e.target.value))
+			console.log(skills)
 		 }
 
 		 this.setState({skills:skills})
+		 
 	 }
 
 	 lookupSkills() {
@@ -64,8 +73,9 @@ class UserProfileEdit extends Component {
         // Back-end controls the left side, properties, of this object
         // Front-end controls the variables names and values on the right side
         body: JSON.stringify({
-			token: window.user.token,
+			//token: window.user.token,
             user: {
+				token: window.user.token,
                 email: this.state.email,
 				phone: this.state.phone,
 				communication: this.state.communication,
@@ -100,22 +110,22 @@ class UserProfileEdit extends Component {
 					<div className="col-sm-6 col-sm-offset-3">
 						<div className="form-group">
 							<label htmlFor="email"> Email (optional)</label>
-							<input type="text" className="form-control" id="email" name="email" placeholder="" onChange={(e) => this.setState({email: e.target.value})}/>
+							<input type="text" className="form-control"  name="email" placeholder="" value={this.state.email} onChange={(e) => this.setState({email: e.target.value})}/>
 						</div>
 						<div className="form-group">
 							<label htmlFor="phone">Phone</label>
-							<input type="text" className="form-control" id="phone" name="phone" placeholder="" onChange={(e) => this.setState({phone: e.target.value})}/>
+							<input type="text" className="form-control"  name="phone" placeholder="" value={this.state.phone} onChange={(e) => this.setState({phone: e.target.value})}/>
 						</div>
 						<div className="form-group">
 							<label htmlFor="communication">Preferred method of communication:</label>
-							<select className="form-control" onChange={(e) => this.setState({communication: e.target.value})}>
+							<select className="form-control" value={this.state.communication} onChange={(e) => this.setState({communication: e.target.value})}>
 								<option>Phone</option>
 								<option>Email</option>
 							</select>
 						</div>
 						<div className="form-group">
 							<label htmlFor="about">About</label>
-							<textarea className="form-control" id="about" placeholder="" onChange={(e) => this.setState({about: e.target.value})}/>
+							<textarea className="form-control"  placeholder="" value={this.state.about} onChange={(e) => this.setState({about: e.target.value})}/>
 						</div>
 						</div>
 						</div>
@@ -136,15 +146,15 @@ class UserProfileEdit extends Component {
 					<div className="col-sm-6 col-sm-offset-3">
 						<div className="form-group">
 							<label htmlFor="education">Education</label>
-							<textarea className="form-control" id="education" placeholder="" onChange={(e) => this.setState({education: e.target.value})}/>
+							<textarea className="form-control"  placeholder="" value={this.state.education} onChange={(e) => this.setState({education: e.target.value})}/>
 						</div>
 						<div className="form-group">
-							<label htmlFor="work history">Work History</label>
-							<textarea className="form-control" id="work_history" placeholder="" onChange={(e) => this.setState({workHistory: e.target.value})}/>
+							<label htmlFor="workHistory">Work History</label>
+							<textarea className="form-control"  placeholder="" value={this.state.work_history} onChange={(e) => this.setState({workHistory: e.target.value})}/>
 						</div>
 						<div className="form-group">
 							<label htmlFor="otherInterests">Other Interests</label>
-							<textarea className="form-control" id="other_interests" placeholder="" onChange={(e) => this.setState({interests: e.target.value})}/>
+							<textarea className="form-control"  placeholder="" value={this.state.interests} onChange={(e) => this.setState({interests: e.target.value})}/>
 						</div>
 						<br/>
 						<div className="form-group text-center"><button type="button" className="btn btn-default" onClick={this.editProfile}>Save</button></div>

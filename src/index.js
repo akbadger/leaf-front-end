@@ -24,28 +24,25 @@ import './index.css';
 window.user = JSON.parse(sessionStorage.getItem('user'))
 if (window.user) {window.user = window.user.user}
 
-window.apiHost = 'https://salty-thicket-32148.herokuapp.com'
+window.apiHost = 'https://glacial-wave-69316.herokuapp.com'
 
+const isEmployer = (window.user && window.user.role === 'employer')
 
 ReactDOM.render(
   <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
 		<Route path="/signin" component={Signin} />
-		<Route path="/usersignup" component={UserSignup} />
-		<Route path="/employersignup" component={EmployerSignup} />
-        <Route path="/userdashboard" component={UserDashboard} />
-        <Route path="/userprofileedit" component={UserProfileEdit} />
-        <Route path="/employerdashboard" component={EmployerDashboard} />
-        <Route path="/employerprofileedit" component={EmployerProfileEdit} />
-        <Route path="/jobmatches" component={JobMatches} />
-        <Route path="/userdetail" component={UserDetail} />
-        <Route path="/jobdetail" component={JobDetail} />
-        <Route path="/employerdetail" component={EmployerDetail} />
-        <Route path="/usersnapshot" component={UserSnapshot} />
-        <Route path="/employersnapshot" component={EmployerSnapshot} />
-        <Route path="/jobsnapshot" component={JobSnapshot} />
-        <Route path="/addjob" component={AddJob} />
+		<Route path="/signup" component={isEmployer ? EmployerSignup : UserSignup} />
+    <Route path="/dashboard" component={isEmployer ? EmployerDashboard : UserDashboard} />
+    <Route path="/profile-edit" component={isEmployer ? EmployerProfileEdit : UserProfileEdit} />
+    <Route path="/jobmatches" component={JobMatches} />
+    <Route path="/profile" component={isEmployer? EmployerDetail : UserDetail} />
+    <Route path="/jobdetail" component={JobDetail} />
+    <Route path="/usersnapshot" component={UserSnapshot} />
+    <Route path="/employersnapshot" component={EmployerSnapshot} />
+    <Route path="/jobsnapshot" component={JobSnapshot} />
+    <Route path="/addjob" component={AddJob} />
     
 
       </Route>

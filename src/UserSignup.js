@@ -25,10 +25,15 @@ class UserSignup extends Component {
         // Front-end controls the variables names and values on the right side
         body: JSON.stringify({
             user: {
-                first_name: this.state.firstName,
-                last_name: this.state.lastName,
+                seeker_profile_attributes: {
+                    first_name: this.state.firstName,
+                    last_name: this.state.lastName
+                },
+                employer_profile_attributes: {
+                    company_name: this.state.companyName
+                },
                 username: this.state.username,
-                password: this.state.password,
+                password: this.state.password
             }
         })
     })

@@ -27,6 +27,17 @@ class EmployerSignup extends Component {
 								<option>Not Provided</option>
 							</select>
 						</div>
+						<div className="form-group">
+							<label htmlFor="location">Location:</label>
+							<select className="form-control">
+								<option>Downtown Bloomington</option>
+								<option>North Bloomington</option>
+								<option>East Bloomington</option>
+								<option>South Bloomington</option>
+								<option>West Bloomington</option>
+								<option>Greater Monroe County</option>
+							</select>
+						</div>
 
 						<div className="form-group">
 							<label htmlFor="about">Description</label>

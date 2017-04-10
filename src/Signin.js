@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { browserHistory } from 'react-router';
 
 class Signin extends Component {
     constructor(props) {
@@ -23,7 +22,7 @@ class Signin extends Component {
         body: JSON.stringify({
             user: {
                 username: this.state.username,
-                password: this.state.password,
+                password: this.state.password
             }
         })
     })
@@ -37,7 +36,7 @@ class Signin extends Component {
                 // Saves any string into a named spot within your browser for the current domain.
                 sessionStorage.setItem('user', JSON.stringify(response));
                 // browserHistory.push(response.user.role === 'user' ? '/userdashboard' : '/employerdashboard');
-                location.href = '/userdashboard';
+                location.href = '/dashboard';
             }
             else {
                 alert('There was an error. Check out your console.');
